@@ -1,2 +1,3 @@
 # ISUCON13-BKOLD-training
-Chưa biết mô tả gì nữa ...
+## ISUCON13 Info
+https://isucon.net/archives/57801192.html
