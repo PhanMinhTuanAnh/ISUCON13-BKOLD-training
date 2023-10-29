@@ -1,0 +1,32 @@
+---
+- name: Create .ssh directory for root
+  become: true
+  file:
+    path: /root/.ssh
+    state: directory
+    mode: 0700
+    owner: root
+    group: root
+
+- name: Delete git clone dir
+  become: true
+  shell: |
+    rm -rf /home/isucon/isucon12-final
+
+- name: Clone isucon12-final
+  become: true
+  git:
+    repo: https://github.com/isucon/isucon12-final.git
+    dest: /home/isucon/isucon12-final
+    clone: true
+    force: true
+    depth: 1
+
+- name: Change owner of isucon12-final
+  become: true
+  file:
+    path: /home/isucon/isucon12-final
+    state: directory
+    owner: isucon
+    group: isucon
+    recurse: true
